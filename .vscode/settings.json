@@ -2,6 +2,7 @@
     "files.associations": {
         "sstream": "cpp",
         "algorithm": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "doubly_linkedlist": "cpp"
     }
 }

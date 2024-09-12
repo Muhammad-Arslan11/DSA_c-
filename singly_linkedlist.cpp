@@ -20,7 +20,7 @@ class Node{
             delete this->next;
             this->next = NULL;
         }
-        cout<<"memory free"<<endl;
+        cout<<this->data<<": free"<<endl;
     }
 };
 
@@ -78,24 +78,31 @@ class Node{
        temp->next = nodeToInsert; // second, change the temp's pointer to nodeToinsert
        
    }
+
+
    void delete_node(int pos,Node* &head){
-    Node* temp = head;
-    coutn
+    Node* prev = head;
+    Node* current = head;
+
     if(pos == 1){
     // if pos is actually the head
      head = head->next;
-     delete temp;
+     delete prev;
     }
     else{
         // if pos is either any number in-between head and tail or it is the tail
+        int count = 1;
+        while(count <= pos){
+            prev = current; // now, prev is actually the current
+            current = current->next; // here, current changes its location
+            count++; 
+        }
+        // at this line, current is located at the right given position
+        prev->next = current->next;
+        current->next = NULL;
+        delete current;
 
     }
-    int count = 0;
-   
-    
-      // rerefering temp pointer to the pointer of position
-       temp->next = pos->next;
-      head
    }
 
 
@@ -108,11 +115,12 @@ int main(){
     Node* head = node1;
 
     
-    insert_at_head(12,head); // insert at head
+    // insert_at_head(12,head); // insert at head
      insert_at_tail(15,tail);  // insert at tail
      insert_at_position(head,2,13); // insert at position
     //   insert_at_tail(15,tail);
-
+      
+    delete_node(2,head);
      // print 
      print(head);
 
