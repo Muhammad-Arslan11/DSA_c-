@@ -3,6 +3,7 @@
         "sstream": "cpp",
         "algorithm": "cpp",
         "iostream": "cpp",
-        "doubly_linkedlist": "cpp"
+        "doubly_linkedlist": "cpp",
+        "new": "cpp"
     }
 }
