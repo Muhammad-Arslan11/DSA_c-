@@ -23,10 +23,7 @@ class Node{
         cout<<this->data<<": free"<<endl;
     }
 };
- // print 
-//  void print(Node* &tail){
-//     while(tail != NULL)
-//  }
+
 // insert 
   void insert(int data, Node* &tail, int element){
 

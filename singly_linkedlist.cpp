@@ -74,7 +74,7 @@ class Node{
       // create a new node
        Node* nodeToInsert = new Node(d);
        // change the pointers
-       nodeToInsert->next = temp->next; // First, point the pointer of nodeToinsert towards the pointer of temp's pointer 
+       nodeToInsert->next = temp->next; // First, point the pointer of nodeToinsert towards the of temp's pointer 
        temp->next = nodeToInsert; // second, change the temp's pointer to nodeToinsert
        
    }
