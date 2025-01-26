@@ -40,7 +40,7 @@ class Node{
  Node* reverse(Node* &head){
       Node* prev = NULL;
       Node* curr = head;
-      Node* forward = curr->next;
+      Node* forward = NULL;
 
       while(curr != NULL){
         forward = curr->next;
@@ -48,26 +48,25 @@ class Node{
         prev = curr;
         curr = forward;
       }
-
-      return prev;
+       prev = head; // update the head
+      return head;
  }
 
 int main(){
-   // create a node
-    Node* node1 = new Node(10);
-    // here, both the head and the tail refer to the same n
-    Node* head = node1;
+  Node* head = NULL;
 
-    insert_at_head(20,head);
-      insert_at_head(30,head);
-        insert_at_head(40,head);
+    insert_at_head(1, head);
+    insert_at_head(2, head);
+    insert_at_head(3, head);
+    insert_at_head(4, head);
 
-        // reverse(head);
+    cout << "Original list: ";
+    print(head); // Print the original list
 
-     // print 
-     print(head);
+    reverse(head); // Reverse the list
 
-     
+    cout << "Reversed list: ";
+    print(head); // Print the reversed list
 
     return 0;
 }

@@ -1,9 +1,11 @@
 {
     "files.associations": {
+        "*.ejs": "html",
         "sstream": "cpp",
         "algorithm": "cpp",
         "iostream": "cpp",
         "doubly_linkedlist": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "ostream": "cpp"
     }
 }

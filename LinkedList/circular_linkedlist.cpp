@@ -70,7 +70,7 @@ void print(Node* tail){
     do{
         cout<<tail->data<<" ";
         tail = tail->next;
-    }while( tail != temp);
+    }while( tail != temp->next);
   
 
    cout<<endl;

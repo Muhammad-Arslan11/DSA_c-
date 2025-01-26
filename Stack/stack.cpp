@@ -27,16 +27,17 @@ int main(){
     myStack.push(1); // push
      myStack.push(2);
       myStack.push(3);
-    myStack.pop(); // pop: this will remove the last element in the stack
-    myStack.top(); // returns the top element in the stack
-    myStack.empty(); // returns bool.
-    myStack.size(); // returns the size of the stack
+    // myStack.pop(); // pop: this will remove the last element in the stack
+    // myStack.top(); // returns the top element in the stack
+    // myStack.empty(); // returns bool.
+    // myStack.size(); // returns the size of the stack
     // myStack.swap(myStack1); // replaces the content of  one stack with the other 
     // myStack.emplace();
 
      printStack(myStack);
+       printStack(myStack1);
     //  printStack(myStack1);
-    cout<< myStack.empty()<<endl; // true
+    // cout<< myStack.empty()<<endl; // true
 
     return 0;
 }
