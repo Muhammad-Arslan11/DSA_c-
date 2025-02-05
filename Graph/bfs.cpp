@@ -1,7 +1,10 @@
 
 #include<iostream>
 #include<vector>
+#include<stack>
 using namespace std;
+
+
 
 class Graph{
     private:
@@ -27,6 +30,26 @@ class Graph{
         adj[u].push_back(v);
         adj[v].push_back(u); // for undirected graph only
     }
+
+    void breadth_first_search(int vertex){
+       vector<bool> visited(V,false);
+       stack<int> st;
+
+       visited[vertex] = true;
+       st.push(vertex);
+
+       while(!st.empty()){
+        int u = st.top(); st.pop();
+        cout<<u<<" ";
+
+        for(int n: adj[u]){
+            if(!visited[n]){
+                visited[n] = true;
+                st.push(n);
+            }
+        }
+       }
+    }
 };
 
 int main(){
@@ -44,6 +67,7 @@ int main(){
 
     // Display the graph
     g.printGraph();
+    // g.breadth_first_search(0);
 
     return 0;
 }
