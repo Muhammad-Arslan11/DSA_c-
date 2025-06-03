@@ -9,18 +9,18 @@ class Queue{
     int* array; // dynamic array
 
     public:
-     Queue(int capacity){
-         this->capacity = capacity;
-         this->front = 0;
-         this->rear = -1;
-         array = new int[this->capacity];
+    Queue(int capacity){
+        this->capacity = capacity;
+        this->front = 0;
+        this->rear = -1;
+        array = new int[this->capacity];
     }
 
     ~Queue() {
         delete[] array;
     }
 
-     void printQueue(){
+    void printQueue(){
          for(int i=front; i<=rear; i++){
              cout<<array[i]<<" ";
          }
@@ -49,10 +49,19 @@ class Queue{
             return;
         }
         for(int i=front; i<rear; i++){
-            array[i] = array[i+1];
+            array[i] = array[i+1]; // shift elements from i to i+1
         }
         rear--;
     }
+
+    // void peek(){
+    //     if(isEmpty()){
+    //    cout<<"Queue is empty"<<endl;
+    //     }
+    //     else{
+    //     cout<<array[rear];
+    //     }
+    // }
 };
 
 
@@ -66,6 +75,7 @@ int main(){
 
     q.dequeue();
     q.printQueue();
+    // q.peek();
 
     return 0;
 }

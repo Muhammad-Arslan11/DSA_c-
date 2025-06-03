@@ -13,7 +13,7 @@ public:
     {
         this->capacity = capacity;
         this->front = 0;
-        this->size = 0;
+        this->size = 0;  // size hamain btai ga k iss main kitne elements majood hn
         this->rear = -1;
         array = new int[this->capacity];
     }
@@ -36,11 +36,11 @@ public:
         cout << endl;
     }
 
-    bool
-    isFull()
+    bool isFull()
     {
-        return ((rear + 1) % capacity == front);
+        return size == capacity;
     }
+    
 
     bool isEmpty()
     {
@@ -55,6 +55,8 @@ public:
             cout << "Queue is full" << endl;
             return;
         }
+        // note: iss chez ka hamasha khayal rakhna ha k rear -1 se start hota h, to jab bhi element 
+        // insert krna hoto rear+1 kar k phir arr[rear] ki jaga element insert krna chiye 
         rear = (rear + 1) % capacity;
         array[rear] = data;
         size++;
@@ -67,9 +69,17 @@ public:
             cout << "Queue is empty" << endl;
             return;
         }
+        // note: enqueue k waqt rear ko ek step agay kreinga aur dequeue k waqt front ko ek step agay krainga
         front = (front + 1) % capacity;
         size--;
+        
+        if (size == 0) // Reset to initial state if only one element was there
+        {
+            front = 0;
+            rear = -1;
+        }
     }
+    
 };
 
 int main()

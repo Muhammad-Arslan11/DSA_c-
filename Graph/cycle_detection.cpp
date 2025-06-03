@@ -1,4 +1,5 @@
 
+// cycle detection using bfs
 #include<iostream>
 #include<unordered_map>
 #include<stack>
@@ -33,20 +34,20 @@ class Graph{
       bool isCyclePresent(int start) {
         vector<bool> visited(V, false);
         vector<int> parent(V, -1);  // To keep track of the parent of each node
-        stack<int> st;
+        stack<int> bucket; // bucket to keep track of elements\
 
-        st.push(start);
+        bucket.push(start);
         visited[start] = true;
 
-        while (!st.empty()) {
-            int elem = st.top();
-            st.pop();
+        while (!bucket.empty()) {
+            int elem = bucket.top();
+            bucket.pop();
 
             for (int n : adjList[elem]) {
                 if (!visited[n]) {
                     visited[n] = true;
                     parent[n] = elem;  // Mark elem as the parent of n
-                    st.push(n);
+                    bucket.push(n);
                 } else if (parent[elem] != n) {  
                     // If visited and not the parent, a cycle is detected
                     return true;
